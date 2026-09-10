@@ -1,7 +1,40 @@
-# 『 Hey! 』
-### ⋰ thanks for stopping by! ⋱
-<p> ✰ I speak Hindi, Urdu, English, and Arabic <p/>
-<p> ✰ I also know JavaScript, CSS, HTML... And I <i> <strong>strive</strong> </i> to learn Python and Chinese...  </p>
+<h1> <p align= center>『 Hey! 』</p> </h1>
+<h2> <p align= center> ⋰ thanks for stopping by! ⋱ </p> </h2>
+<p align= center> ✰ he / him / his ✮ student ✮ I speak Hindi, Urdu, English, and Arabic <p/>
+<h4> <p align= center> ⬊ I am proficient in ⬋ </p> </h4>
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=css,html,js,linux" />
+  </a>
+</p>
+
+<h4> <p align= center> ⬊ I have experience with ⬋ </p> </h4>
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=androidstudio,apple,arch,aws,bash" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=clion,cloudflare,debian,gcp,github" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=mint,netlify,nodejs,pycharm,py" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=replit,vim,vscode,windows,yarn" />
+  </a>
+</p>
+
+-------
 
 <p> <i> he / him / his ✮ student </i> </p>
 
