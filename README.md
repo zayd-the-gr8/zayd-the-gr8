@@ -40,7 +40,7 @@
 </a>
 
 <br>
--ˋˏ✄┈┈┈┈┈┈┈┈┈┈
+<p align="left"> -ˋˏ✄┈┈┈┈┈┈┈┈┈┈ </p>
 <p> <i> he / him / his ✮ student </i> </p>
 
 <i> [My services page- Click to see if anything's down](https://stats.uptimerobot.com/K7XjhRNjXb) </i>
