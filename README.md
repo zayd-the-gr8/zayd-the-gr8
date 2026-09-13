@@ -32,11 +32,14 @@
   <a href="https://guns.lol/Zayd./">
     <img src="https://skillicons.dev/icons?i=replit,vim,vscode,windows,yarn" />
   </a>
-  
+
+<br>
+
 <a href="https://open.spotify.com/user/31wn7x3e65fl6nyvrfcpe2qxpzce">
   <img src="https://spotify-recently-played.jeffreyca.workers.dev/svg?user=31wn7x3e65fl6nyvrfcpe2qxpzce&amp;count=1" alt="Spotify recently played" width="400" />
 </a>
-<divider>
+
+<br>
 -ˋˏ✄┈┈┈┈┈┈┈┈┈┈
 <p> <i> he / him / his ✮ student </i> </p>
 
