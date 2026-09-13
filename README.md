@@ -33,9 +33,14 @@
     <img src="https://skillicons.dev/icons?i=replit,vim,vscode,windows,yarn" />
   </a>
 </p>
+<p align= center>
+<a href="https://open.spotify.com/user/31wn7x3e65fl6nyvrfcpe2qxpzce">
+  <img src="https://spotify-recently-played.jeffreyca.workers.dev/svg?user=31wn7x3e65fl6nyvrfcpe2qxpzce" alt="Spotify recently played" width="400" />
+</a> 
+</p>
 
--------
-
+<divider>
+-ˋˏ✄┈┈┈┈┈┈┈┈┈┈
 <p> <i> he / him / his ✮ student </i> </p>
 
 <i> [My services page- Click to see if anything's down](https://stats.uptimerobot.com/K7XjhRNjXb) </i>
