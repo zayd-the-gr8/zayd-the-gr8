@@ -36,8 +36,8 @@
 <br>
 
 <a href="https://open.spotify.com/user/31wn7x3e65fl6nyvrfcpe2qxpzce">
-  <img src="https://spotify-recently-played.jeffreyca.workers.dev/svg?user=31wn7x3e65fl6nyvrfcpe2qxpzce&amp;theme=nord&amp;count=1&amp;time=0&amp;avatar=0&amp;bg_color=000000" alt="Spotify recently played" width="400" />
-</a>
+  <img src="https://spotify-recently-played.jeffreyca.workers.dev/svg?user=31wn7x3e65fl6nyvrfcpe2qxpzce&amp;theme=nord&amp;count=1&amp;time=0&amp;avatar=0&amp;bg_color=000000" alt="Spotify recently played" width="0" />
+
 
 <br>
 <p align="left"> -ˋˏ✄┈┈┈┈┈┈┈┈┈┈ </p>
