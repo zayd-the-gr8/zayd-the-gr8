@@ -1,6 +1,6 @@
 <h1> <p align= center>『 Hey! 』</p> </h1>
 <h2> <p align= center> ⋰ thanks for stopping by! ⋱ </p> </h2>
-<p align= center> ✰ he / him / his ✮ student ✮ I speak Hindi, Urdu, English, and Arabic <p/>
+<p align= center> ✰ he / him / his ✮ student ✮ I speak Hindi, Urdu, and English <p/>
 <h4> <p align= center> ⬊ I am proficient in ⬋ </p> </h4>
 <p align="center">
   <a href="https://guns.lol/Zayd./">
