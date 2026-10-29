@@ -1,107 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
-<title>zayds website</title>
-    <link rel="icon" type="image" href="https://i.8upload.com/preview/66533b0c33314469/zn.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome Browser</title>
+    <!-- Google Material Icons for authentic Chrome UI -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { display: flex; flex-direction: column; height: 100vh; background: #202124; color: #e8eaed; overflow: hidden; }
+        
+        /* Premium Chrome Tab Bar */
+        .tab-bar { display: flex; align-items: flex-end; background: #2f3033; padding: 8px 12px 0 12px; gap: 0px; height: 40px; user-select: none; }
+        
+        .tab { 
+            display: flex; align-items: center; background: transparent; padding: 0 20px; 
+            height: 32px; min-width: 140px; max-width: 240px; flex: 1;
+            border-radius: 8px 8px 0 0; cursor: pointer; transition: background 0.15s ease, color 0.15s ease; 
+            position: relative; font-size: 12px; color: #9aa0a6; gap: 8px;
+            animation: tabSpawn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .tab:hover { background: rgba(255, 255, 255, 0.05); color: #e8eaed; }
+        .tab.active { background: #202124; color: #e8eaed; font-weight: 500; }
+        
+        /* Authentic Chrome Tab Curves */
+        .tab.active::before, .tab.active::after {
+            content: ''; position: absolute; bottom: 0; width: 8px; height: 8px; background: #202124; pointer-events: none;
+        }
+        .tab.active::before { left: -8px; border-bottom-right-radius: 8px; box-shadow: 4px 4px 0 4px #202124; }
+        .tab.active::after { right: -8px; border-bottom-left-radius: 8px; box-shadow: -4px 4px 0 4px #202124; }
 
-<meta charset=utf-8>
+        .tab span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
+        .tab .close-btn { 
+            display: flex; align-items: center; justify-content: center;
+            width: 16px; height: 16px; border-radius: 50%; transition: background 0.1s;
+        }
+        .tab .close-btn:hover { background: rgba(255, 255, 255, 0.15); }
+        .tab .close-btn i { font-size: 11px; }
 
-  
-    <div style="max-width: 500px; margin: 0 auto; background: #ffffff; color: #000000; padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.02)">
-       
-<html>
-<head>
-<link href='https://fonts.googleapis.com/css?family=Bitcount Grid Single' rel='stylesheet'>
-<style>
-body {
-    font-family: 'Bitcount Grid Single';font-size: 14px;
-}
-</style>
+        .add-tab-btn { 
+            background: none; border: none; color: #9aa0a6; cursor: pointer; 
+            width: 28px; height: 28px; border-radius: 50%; display: flex; 
+            align-items: center; justify-content: center; margin-bottom: 2px; margin-left: 8px;
+            transition: background 0.15s, color 0.15s;
+        }
+        .add-tab-btn:hover { background: rgba(255, 255, 255, 0.08); color: #e8eaed; }
+        .add-tab-btn i { font-size: 18px; }
+
+        /* Navigation Controls & Address Bar */
+        .nav-bar { display: flex; background: #202124; padding: 6px 12px; gap: 12px; align-items: center; border-bottom: 1px solid #3c4043; }
+        .nav-buttons { display: flex; gap: 4px; color: #5f6368; }
+        .nav-btn { background: none; border: none; color: #e8eaed; cursor: pointer; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .nav-btn:hover { background: rgba(255, 255, 255, 0.08); }
+        
+        .address-bar-wrapper { 
+            flex: 1; display: flex; align-items: center; background: #2f3033; 
+            border-radius: 30px; padding: 0 16px; height: 28px; gap: 8px;
+            border: 2px solid transparent; transition: background 0.1s, border-color 0.1s;
+        }
+        .address-bar-wrapper:focus-within { background: #202124; border-color: #8ab4f8; }
+        .address-bar-wrapper i { font-size: 16px; color: #9aa0a6; }
+        .address-bar { width: 100%; border: none; background: transparent; color: #e8eaed; outline: none; font-size: 13px; }
+
+        /* Window Display Viewports */
+        .viewport-container { flex: 1; position: relative; background: #fff; }
+        iframe { width: 100%; height: 100%; border: none; display: none; background: #fff; }
+        iframe.active { display: block; }
+
+        /* Smooth Chrome Animations */
+        @keyframes tabSpawn {
+            from { transform: scaleX(0.6) translateY(5px); opacity: 0; }
+            to { transform: scaleX(1) translateY(0); opacity: 1; }
+        }
+    </style>
 </head>
 <body>
 
-  <style>body { background: linear-gradient(270deg, #91cf94, #a1c4fd, #008218); background-size: 600% 600%; animation: slowGradient 5s ease infinite; } @keyframes slowGradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }</style>
+    <!-- Chrome Tab Controls -->
+    <div class="tab-bar" id="tabBar">
+        <button class="add-tab-btn" onclick="createNewTab()">
+            <i class="material-icons-round">add</i>
+        </button>
+    </div>
 
-  
-<body style="background-color: #7e67db; font-family: 'Bitcount Grid Single'; color: #333; line-height: 1.6; padding: 40px 20px;">
+    <!-- Navigation Header -->
+    <div class="nav-bar">
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="triggerAction('refresh')"><i class="material-icons-round">refresh</i></button>
+        </div>
+        <div class="address-bar-wrapper">
+            <i class="material-icons-round">lock</i>
+            <input type="text" class="address-bar" id="addressBar" placeholder="Search Google or type a URL" onkeydown="handleNavigation(event)">
+        </div>
+    </div>
 
-<p align=left > <strong>Z A Y Dㅤ ✰ ㅤN I S A R</strong></p>
-<hr align= left width=120 class="invisible-divider" color=#ffffff>
-  
-<h1 font-family:"Bitcount Prop Single", system-ui;> <p align= center>『 Hey!』</p></h1>
-<h2> <p align= center> thanks for stopping by! </p> </h2>
-<p align= center>student ✮ I speak Hindi, Urdu, and English <p/>
-<h4> <p align= center> ⬊ I am skilled in ⬋ </p> </h4>
-<p align="center">
-  <a href="https://guns.lol/Zayd./">
-    <img src="https://skillicons.dev/icons?i=css,html,js,linux&theme=light" />
-  </a>
-</p>
+    <!-- Tab Viewports container -->
+    <div class="viewport-container" id="viewportContainer"></div>
 
-<h4> <p align= center> ⬊ I have experience with ⬋ </p> </h4>
+    <script>
+        // Bound to your working Bonto service path
+        const PROXY_BACKEND = "https://bonto.run"; 
+        
+        let tabCount = 0;
+        let activeTabId = null;
 
-<p align="center">
-  <a href="https://zayd.pages.dev">
-    <img src="https://skillicons.dev/icons?i=androidstudio,apple,arch,aws,bash&theme=light" />
-  </a>
-</p>
+        function createNewTab() {
+            tabCount++;
+            const tabId = `tab-${tabCount}`;
 
-<p align="center">
-  <a href="https://zayd.pages.dev">
-    <img src="https://skillicons.dev/icons?i=clion,cloudflare,debian,gcp,github&theme=light" />
-  </a>
-</p>
+            const tab = document.createElement('div');
+            tab.className = 'tab';
+            tab.id = `nav-${tabId}`;
+            tab.innerHTML = `
+                <i class="material-icons-round" style="font-size: 14px; color: #9aa0a6;">public</i>
+                <span>New Tab</span> 
+                <div class="close-btn" onclick="closeTab(event, '${tabId}')">
+                    <i class="material-icons-round">close</i>
+                </div>
+            `;
+            tab.onclick = () => switchTab(tabId);
+            
+            const addBtn = document.querySelector('.add-tab-btn');
+            document.getElementById('tabBar').insertBefore(tab, addBtn);
 
-<p align="center">
-  <a href="https://zayd.pages.dev">
-    <img src="https://skillicons.dev/icons?i=mint,netlify,nodejs,pycharm,py&theme=light" />
-  </a>
-</p>
+            const iframe = document.createElement('iframe');
+            iframe.id = tabId;
+            iframe.src = 'about:blank';
+            document.getElementById('viewportContainer').appendChild(iframe);
 
-<p align="center">
-  <a href="https://zayd.pages.dev">
-    <img src="https://skillicons.dev/icons?i=replit,vim,vscode,windows,yarn&theme=light" />
-  </a>
+            switchTab(tabId);
+        }
 
-<br>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('iframe').forEach(i => i.classList.remove('active'));
 
-<hr align= left width=1 class="invisible-divider" color=#ffffff>
-  
-<a href="https://stats.uptimerobot.com/K7XjhRNjXb" class="html-button">My 'down detector'... (uptime)</a>
+            const targetTab = document.getElementById(`nav-${tabId}`);
+            const targetIframe = document.getElementById(tabId);
 
-<style>
-  .html-button {
-    background-color: #e4ebf7;
-    color: #3300ff;
-    padding: 10px 20px;
-    text-decoration: none; 
-    display: inline-block;
-    border-radius: 5px;
-    font-family: Bitcount Grid Single;
-    font-weight: bold;
-  }
-  .html-button:hover {
-    background-color: #faecaf; 
-  }
-</style>
-  
-<hr align= left width=1 class="invisible-divider" color=#ffffff>
+            if (targetTab && targetIframe) {
+                targetTab.classList.add('active');
+                targetIframe.classList.add('active');
+                activeTabId = tabId;
+                
+                const currentUrl = targetIframe.dataset.originalUrl || '';
+                document.getElementById('addressBar').value = currentUrl;
+            }
+        }
 
+        function closeTab(event, tabId) {
+            event.stopPropagation();
+            document.getElementById(`nav-${tabId}`).remove();
+            document.getElementById(tabId).remove();
 
-<a href="https://developer.mozilla.org/en-US/docs/Learn_web_development" class="html-button"><strong>BEST</strong> way to learn HTML and JavaScript (worked for me - not endorsed or sponsored)</a>
+            if (activeTabId === tabId) {
+                const remainingTabs = document.querySelectorAll('.tab');
+                if (remainingTabs.length > 0) {
+                    const nextTabId = remainingTabs[remainingTabs.length - 1].id.replace('nav-', '');
+                    switchTab(nextTabId);
+                }
+            }
+        }
 
+        function handleNavigation(event) {
+            if (event.key === 'Enter' && activeTabId) {
+                let input = document.getElementById('addressBar').value.trim();
+                if (!input) return;
 
-<hr align= left width=1 class="invisible-divider" color=#ffffff>
-  
-<p> <i>if the need for contact arises, please email zayd@emailthing.xyz</i> </p>
-<hr align= left width=1 class="invisible-divider" color=#ffffff>
-  
-<p style= font-family: 'Bitcount Grid Single'; font-size: 92px> this website was made without any use of generative ai - this website was all manually typed by zayd nisar. </p>
+                // Handle missing protocol strings gracefully
+                if (!input.startsWith('http://') && !input.startsWith('https://')) {
+                    if (input.includes('.') && !input.includes(' ')) {
+                        input = 'https://' + input;
+                    } else {
+                        input = 'https://google.com' + encodeURIComponent(input);
+                    }
+                }
 
-<p> <a href=https://github.com/zayd-the-gr8/zayd-the-gr8/blob/main/LICENSE><small>THIS WEBSITE IS PROTECTED WITH A BSD 2-CLAUSE LICENSE</small></a> </p>
+                const iframe = document.getElementById(activeTabId);
+                iframe.dataset.originalUrl = input;
+                
+                // Encode using the precise web Base64 codec standard our backend expects
+                const encodedUrl = btoa(input); 
+                iframe.src = `${PROXY_BACKEND}${encodedUrl}`;
+                
+                // Update the visual text representation inside the active tab
+                let displayTitle = input.replace('https://', '').replace('http://', '').replace('www.', '');
+                document.getElementById(`nav-${activeTabId}`).querySelector('span').innerText = displayTitle;
+            }
+        }
 
-<p><small>COPYRIGHT (C) ZAYD AHMED - PUBLISHED 2026</small></p>
-  
+        function triggerAction(action) {
+            if (!activeTabId) return;
+            const iframe = document.getElementById(activeTabId);
+            if (action === 'refresh') iframe.src = iframe.src;
+        }
+
+        // Auto-open first browser page
+        createNewTab();
+    </script>
 </body>
 </html>
