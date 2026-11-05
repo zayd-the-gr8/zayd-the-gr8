@@ -4,7 +4,7 @@
 <h4> <p align= center> ⬊ I am proficient in ⬋ </p> </h4>
 <p align="center">
   <a href="https://guns.lol/Zayd./">
-    <img src="https://skillicons.dev/icons?i=css,html,js,linux" />
+    <img src="https://skillicons.dev/icons?i=css,html,js,linux,bash" />
   </a>
 </p>
 
