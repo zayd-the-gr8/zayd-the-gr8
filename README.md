@@ -49,4 +49,6 @@
 
 <i> [<strong>BEST</strong> way to learn HTML and JavaScript (worked for me - not endorsed or sponsored)](https://developer.mozilla.org/en-US/docs/Learn_web_development) </i>
 
+sponsor me for my product to be faster , and so I can develop better 
+
 ###### <i>if the need for contact arises, please email zayd@emailthing.xyz </i>
