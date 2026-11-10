@@ -1,107 +1,696 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
-<title>zayds website</title>
-    <link rel="icon" type="image" href="https://i.8upload.com/preview/66533b0c33314469/zn.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<meta charset=utf-8>
+  <title>Zayd Nisar</title>
 
-  
-    <div style="max-width: 500px; margin: 0 auto; background: #ffffff; color: #000000; padding: 40px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.02)">
-       
-<html>
-<head>
-<link href='https://fonts.googleapis.com/css?family=Bitcount Grid Single' rel='stylesheet'>
-<style>
-body {
-    font-family: 'Bitcount Grid Single';font-size: 14px;
-}
-</style>
+  <link
+    rel="icon"
+    type="image/png"
+    href="https://i.8upload.com/preview/66533b0c33314469/zn.png"
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      color-scheme: light;
+
+      --background: #ffffff;
+      --surface: #f6f6f6;
+      --surface-hover: #eeeeee;
+      --text: #111111;
+      --muted: #777777;
+      --faint: #a0a0a0;
+      --border: #dedede;
+      --link: #555555;
+      --link-hover: #000000;
+      --accent: #111111;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        color-scheme: dark;
+
+        --background: #000000;
+        --surface: #0d0d0d;
+        --surface-hover: #171717;
+        --text: #eeeeee;
+        --muted: #909090;
+        --faint: #555555;
+        --border: #252525;
+        --link: #bdbdbd;
+        --link-hover: #ffffff;
+        --accent: #ffffff;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+
+      --background: #000000;
+      --surface: #0d0d0d;
+      --surface-hover: #171717;
+      --text: #eeeeee;
+      --muted: #909090;
+      --faint: #555555;
+      --border: #252525;
+      --link: #bdbdbd;
+      --link-hover: #ffffff;
+      --accent: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      background: var(--background);
+      font-family: "Bitcount Grid Single", system-ui, sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+      transition:
+        color 180ms ease,
+        background-color 180ms ease;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .site-wrapper {
+      width: min(100% - 32px, 720px);
+      margin: 0 auto;
+      padding: 24px 0 56px;
+    }
+
+    .navigation {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 23px;
+      margin-bottom: 68px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .navigation a,
+    .theme-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding-bottom: 5px;
+      color: var(--link);
+      border: 0;
+      border-bottom: 1px solid transparent;
+      background: transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition:
+        color 180ms ease,
+        border-color 180ms ease;
+    }
+
+    .navigation a:hover,
+    .navigation a:focus-visible,
+    .theme-button:hover,
+    .theme-button:focus-visible {
+      color: var(--link-hover);
+      border-bottom-color: var(--accent);
+      outline: none;
+    }
+
+    .nav-icon {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .theme-button {
+      margin-left: auto;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 40px;
+    }
+
+    .profile-image {
+      display: block;
+      width: 74px;
+      height: 74px;
+      border-radius: 12px;
+      object-fit: cover;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .profile-fallback {
+      display: grid;
+      place-items: center;
+      width: 74px;
+      height: 74px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 28px;
+    }
+
+    .profile-info h1 {
+      margin-bottom: 1px;
+      color: var(--text);
+      font-size: 25px;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+    }
+
+    .profile-info p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .intro {
+      max-width: 660px;
+      margin-bottom: 48px;
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .section {
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: lowercase;
+    }
+
+    .section-label::before {
+      content: "↘ ";
+      color: var(--faint);
+    }
+
+    .skills-card {
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface);
+      transition:
+        background-color 180ms ease,
+        border-color 180ms ease;
+    }
+
+    .skills-card:hover {
+      background: var(--surface-hover);
+    }
+
+    .skills-card + .skills-card {
+      margin-top: 14px;
+    }
+
+    .skills-card h2 {
+      margin-bottom: 16px;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .icon-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-row a {
+      display: inline-flex;
+      padding: 5px;
+      border-radius: 5px;
+      transition:
+        background-color 180ms ease,
+        transform 180ms ease;
+    }
+
+    .icon-row a:hover,
+    .icon-row a:focus-visible {
+      background: var(--surface-hover);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .icon-row img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .link-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .site-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 13px 15px;
+      color: var(--link);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      text-decoration: none;
+      transition:
+        color 180ms ease,
+        background-color 180ms ease,
+        border-color 180ms ease,
+        transform 180ms ease;
+    }
+
+    .site-link:hover,
+    .site-link:focus-visible {
+      color: var(--link-hover);
+      border-color: var(--accent);
+      background: var(--surface-hover);
+      transform: translateX(3px);
+      outline: none;
+    }
+
+    .site-link::after {
+      content: "↗";
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding-bottom: 2px;
+      color: var(--link);
+      border-bottom: 1px solid transparent;
+      font-size: 13px;
+      text-decoration: none;
+      transition:
+        color 180ms ease,
+        border-color 180ms ease;
+    }
+
+    .contact-links a:hover,
+    .contact-links a:focus-visible {
+      color: var(--link-hover);
+      border-bottom-color: var(--accent);
+      outline: none;
+    }
+
+    .contact-icon {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .statement {
+      padding: 17px;
+      color: var(--muted);
+      border-left: 2px solid var(--border);
+      background: var(--surface);
+      font-size: 13px;
+    }
+
+    .statement strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    footer {
+      padding-top: 22px;
+      color: var(--faint);
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover,
+    footer a:focus-visible {
+      color: var(--link-hover);
+      text-decoration: underline;
+      outline: none;
+    }
+
+    .footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 5px;
+    }
+
+    @media (max-width: 560px) {
+      .site-wrapper {
+        width: min(100% - 26px, 720px);
+        padding-top: 18px;
+      }
+
+      .navigation {
+        gap: 15px;
+        margin-bottom: 52px;
+      }
+
+      .theme-button {
+        margin-left: 0;
+      }
+
+      .profile-image,
+      .profile-fallback {
+        width: 62px;
+        height: 62px;
+      }
+
+      .profile-info h1 {
+        font-size: 21px;
+      }
+
+      .intro {
+        font-size: 13px;
+      }
+
+      .site-link {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .site-link::after {
+        display: none;
+      }
+
+      .contact-links {
+        gap: 11px 15px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <main class="site-wrapper">
+    <nav class="navigation" aria-label="Main navigation">
+      <a href="#home">
+        <span class="nav-icon">⌂</span>
+        home
+      </a>
 
-  <style>body { background: linear-gradient(270deg, #91cf94, #a1c4fd, #008218); background-size: 600% 600%; animation: slowGradient 5s ease infinite; } @keyframes slowGradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }</style>
+      <a href="#skills">
+        <span class="nav-icon">▦</span>
+        skills
+      </a>
+
+      <a href="#links">
+        <span class="nav-icon">↗</span>
+        links
+      </a>
+
+      <a href="#contact">
+        <span class="nav-icon">✉</span>
+        contact
+      </a>
+
+      <button
+        class="theme-button"
+        id="theme-toggle"
+        type="button"
+        aria-label="Toggle light and dark mode"
+      >
+        <span id="theme-icon">◐</span>
+        theme
+      </button>
+    </nav>
+
+   
+        <div class="profile-fallback" id="profile-fallback" hidden>
+          ZN
+        </div>
+
+        <div class="profile-info">
+          <h1>Zayd Nisar</h1>
+          <p>student · 13</p>
+        </div>
+      </div>
+
+      <p class="intro">
+        hi, i'm zayd. i'm a student and i speak Hindi, Urdu, and
+        English. i make primarily good UI stuff, frontend, and styling as well as design
+      </p>
+    </section>
+
+    <section class="section" id="skills">
+      <p class="section-label">i am skilled in</p>
+
+      <div class="skills-card">
+        <h2>⬊ I am skilled in ⬋</h2>
+
+        <div class="icon-row">
+          <a href=https://guns.lol/Zayd./>
+            <img
+              src="https://skillicons.dev/icons?i=css,html,js,linux&theme=light"
+              alt="CSS, HTML, JavaScript, and Linux"
+            />
+          </a>
+        </div>
+      </div>
+
+      <div class="skills-card">
+        <h2>⬊ I have experience with ⬋</h2>
+
+        <div class="icon-row">
+          <a
+            href="https://zayd.pages.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View Zayd's experience"
+          >
+            <img
+              src="https://skillicons.dev/icons?i=androidstudio,apple,arch,aws,bash&theme=light"
+              alt="Android Studio, Apple, Arch, AWS, and Bash"
+            />
+          </a>
 
   
-<body style="background-color: #7e67db; font-family: 'Bitcount Grid Single'; color: #333; line-height: 1.6; padding: 40px 20px;">
+            <img
+              src="https://skillicons.dev/icons?i=clion,cloudflare,debian,gcp,github&theme=light"
+              alt="CLion, Cloudflare, Debian, Google Cloud, and GitHub"
+            />
+          </a>
 
-<p align=left > <strong>Z A Y Dㅤ ✰ ㅤN I S A R</strong></p>
-<hr align= left width=120 class="invisible-divider" color=#ffffff>
-  
-<h1 font-family:"Bitcount Prop Single", system-ui;> <p align= center>『 Hey!』</p></h1>
-<h2> <p align= center> thanks for stopping by! </p> </h2>
-<p align= center>student ✮ I speak Hindi, Urdu, and English <p/>
-<h4> <p align= center> ⬊ I am skilled in ⬋ </p> </h4>
-<p align="center">
-  <a href="https://guns.lol/Zayd./">
-    <img src="https://skillicons.dev/icons?i=css,html,js,linux&theme=light" />
-  </a>
-</p>
+          <a
+            href="https://zayd.pages.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View Zayd's experience"
+          >
+            <img
+              src="https://skillicons.dev/icons?i=mint,netlify,nodejs,pycharm,py&theme=light"
+              alt="Linux Mint, Netlify, Node.js, PyCharm, and Python"
+            />
+          </a>
 
-<h4> <p align= center> ⬊ I have experience with ⬋ </p> </h4>
+          <a
+            href="https://zayd.pages.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View Zayd's experience"
+          >
+            <img
+              src="https://skillicons.dev/icons?i=replit,vim,vscode,windows,yarn&theme=light"
+              alt="Replit, Vim, Visual Studio Code, Windows, and Yarn"
+            />
+          </a>
+        </div>
+      </div>
+    </section>
 
-<p align="center">
-  <a href="https://zayd.pages.dev">
-    <img src="https://skillicons.dev/icons?i=androidstudio,apple,arch,aws,bash&theme=light" />
-  </a>
-</p>
+    <section class="section" id="links">
+      <p class="section-label">links</p>
 
-<p align="center">
-  <a href="https://zayd.pages.dev">
-    <img src="https://skillicons.dev/icons?i=clion,cloudflare,debian,gcp,github&theme=light" />
-  </a>
-</p>
+      <div class="link-list">
+        <a
+          class="site-link"
+          href="https://cat-xqlq.onrender.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>isle - best ubg</span>
+        </a>
 
-<p align="center">
-  <a href="https://zayd.pages.dev">
-    <img src="https://skillicons.dev/icons?i=mint,netlify,nodejs,pycharm,py&theme=light" />
-  </a>
-</p>
+         <a
+          class="site-link"
+          href="https://stats.uptimerobot.com/K7XjhRNjXb"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>uptime status</span>
+        </a>
 
-<p align="center">
-  <a href="https://zayd.pages.dev">
-    <img src="https://skillicons.dev/icons?i=replit,vim,vscode,windows,yarn&theme=light" />
-  </a>
+        <a
+          class="site-link"
+          href="https://developer.mozilla.org/en-US/docs/Learn_web_development"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>
+            <strong>BEST</strong> way to learn HTML and JavaScript
+            <small> · worked for me, not endorsed or sponsored</small>
+          </span>
+        </a>
+      </div>
+    </section>
 
-<br>
+    <section class="section" id="contact">
+      <p class="section-label">contact</p>
 
-<hr align= left width=1 class="invisible-divider" color=#ffffff>
-  
-<a href="https://stats.uptimerobot.com/K7XjhRNjXb" class="html-button">My 'down detector'... (uptime)</a>
-
-<style>
-  .html-button {
-    background-color: #e4ebf7;
-    color: #3300ff;
-    padding: 10px 20px;
-    text-decoration: none; 
-    display: inline-block;
-    border-radius: 5px;
-    font-family: Bitcount Grid Single;
-    font-weight: bold;
-  }
-  .html-button:hover {
-    background-color: #faecaf; 
-  }
-</style>
-  
-<hr align= left width=1 class="invisible-divider" color=#ffffff>
-
-
-<a href="https://developer.mozilla.org/en-US/docs/Learn_web_development" class="html-button"><strong>BEST</strong> way to learn HTML and JavaScript (worked for me - not endorsed or sponsored)</a>
+      <div class="contact-links">
+        <a
+          href="https://github.com/zayd-the-gr8"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="contact-icon">◉</span>
+          github
+        </a>
 
 
-<hr align= left width=1 class="invisible-divider" color=#ffffff>
-  
-<p> <i>if the need for contact arises, please email zayd@emailthing.xyz</i> </p>
-<hr align= left width=1 class="invisible-divider" color=#ffffff>
-  
-<p style= font-family: 'Bitcount Grid Single'; font-size: 92px> this website was made without any use of generative ai - this website was all manually typed by zayd nisar. </p>
+        <a
+          href="https://zayd.pages.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="contact-icon">◇</span>
+          
+        </a>
 
-<p> <a href=https://github.com/zayd-the-gr8/zayd-the-gr8/blob/main/LICENSE><small>THIS WEBSITE IS PROTECTED WITH A BSD 2-CLAUSE LICENSE</small></a> </p>
+        <a href="mailto:zayd@emailthing.xyz">
+          <span class="contact-icon">✉</span>
+          zayd@emailthing.xyz
+        </a>
+      </div>
+    </section>
 
-<p><small>COPYRIGHT (C) ZAYD AHMED - PUBLISHED 2026</small></p>
-  
+    <section class="section">
+      <div class="statement">
+        <strong>
+          this website was made without any use of generative ai.
+        </strong>
+        <br />
+        this website was all manually coded by zayd nisar.
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-row">
+        <span>zayd nisar</span>
+
+        <a
+          href="https://github.com/zayd-the-gr8/zayd-the-gr8/blob/main/LICENSE"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          BSD 2-Clause License
+        </a>
+      </div>
+
+      <div>copyright © zayd ahmed · published 2026</div>
+    </footer>
+  </main>
+
+  <script>
+    const root = document.documentElement;
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeIcon = document.getElementById("theme-icon");
+
+    const savedTheme = localStorage.getItem("zayd-theme");
+
+    if (savedTheme) {
+      root.dataset.theme = savedTheme;
+    }
+
+    function updateThemeButton() {
+      const currentTheme = root.dataset.theme;
+
+      if (currentTheme === "dark") {
+        themeIcon.textContent = "☀";
+        themeToggle.setAttribute("aria-label", "Switch to light mode");
+      } else if (currentTheme === "light") {
+        themeIcon.textContent = "☾";
+        themeToggle.setAttribute("aria-label", "Switch to dark mode");
+      } else {
+        themeIcon.textContent = "◐";
+        themeToggle.setAttribute(
+          "aria-label",
+          "Toggle light and dark mode"
+        );
+      }
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const currentTheme = root.dataset.theme;
+
+      if (currentTheme === "dark") {
+        root.dataset.theme = "light";
+        localStorage.setItem("zayd-theme", "light");
+      } else {
+        root.dataset.theme = "dark";
+        localStorage.setItem("zayd-theme", "dark");
+      }
+
+      updateThemeButton();
+    });
+
+    updateThemeButton();
+  </script>
 </body>
 </html>
